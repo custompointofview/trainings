@@ -41,9 +41,9 @@ curl -sSLo /etc/bash_completion.d/docker-compose https://raw.githubusercontent.c
 export USER_V=vagrant
 sudo groupadd docker
 sudo usermod -aG docker $USER_V
-sudo newgrp docker
-sudo chown "$USER_V":"$USER_V" /home/"$USER_V"/.docker -R
-sudo chmod g+rwx "/home/$USER_V/.docker" -R
+# sudo newgrp docker
+# sudo chown "$USER_V":"$USER_V" /home/"$USER_V"/.docker -R
+# sudo chmod g+rwx "/home/$USER_V/.docker" -R
 
 echo "==================================="
 echo "==== Provisioning Done! ===="

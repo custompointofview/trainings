@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  novi-db:
+    image: 127.0.0.1:5000/novi-db
+    container_name: novi-db
+    build:
+      context: ../../1stDay/3-mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - back-tier
+    environment:
+      MYSQL_ROOT_PASSWORD: novi_root_pass
+
+  novi-web-app:
+    image: 127.0.0.1:5000/novi-web-app
+    container_name: novi-web-app
+    build:
+      context: ../../1stDay/4-tomcat-app
+    depends_on:
+      - novi-db
+    ports:
+      - "8080:8080"
+      - "8000:8000"
+    networks:
+      - front-tier
+      - back-tier
+
+networks:
+  back-tier:
+  front-tier:

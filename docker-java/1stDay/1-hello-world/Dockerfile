@@ -1,3 +1,3 @@
 FROM ubuntu:latest
 
-CMD ["/bin/echo", "Hello world!"]
+CMD ["/bin/echo", "Hello Johny!"]

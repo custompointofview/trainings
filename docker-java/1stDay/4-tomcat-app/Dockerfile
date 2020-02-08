@@ -1,8 +1,7 @@
-#
+
 # Build the app using maven in a container
-#
 FROM maven:3.5.2-jdk-8-alpine AS devenv
-WORKDIR /usr/src/java-app 
+WORKDIR /usr/src/java-app
 COPY app/pom.xml .
 RUN mvn -B -f pom.xml -s /usr/share/maven/ref/settings-docker.xml dependency:resolve
 COPY ./app .
@@ -11,9 +10,7 @@ RUN mvn -B -s /usr/share/maven/ref/settings-docker.xml package -DskipTests
 #
 # deploy application to tomcat
 #
-
 FROM tomcat:7-jre8
-LABEL maintainer="Sophia Parafina <sophia.parafina@docker.com>"
 
 # tomcat-users.xml sets up user accounts for the Tomcat manager GUI
 ADD tomcat/tomcat-users.xml $CATALINA_HOME/conf/

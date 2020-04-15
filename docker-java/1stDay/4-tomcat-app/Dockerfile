@@ -27,5 +27,5 @@ WORKDIR $CATALINA_HOME/webapps/
 COPY --from=devenv /usr/src/java-app/target/java-web.war .
 
 # start tomcat7 with remote debugging
-EXPOSE 8080
+EXPOSE 8081
 CMD ["run.sh"]

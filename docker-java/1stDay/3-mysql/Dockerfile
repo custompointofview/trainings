@@ -9,3 +9,4 @@ ADD initialize_db.sql /docker-entrypoint-initdb.d/initialize_db.sql
 ENV MYSQL_DATABASE=signup
 ENV MYSQL_USER=novi
 ENV MYSQL_PASSWORD=password
+ENV MYSQL_ROOT_PASSWORD=password

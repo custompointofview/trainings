@@ -15,8 +15,9 @@ sudo kubeadm init --apiserver-advertise-address="${MASTER_IP}" --pod-network-cid
 
 
 mkdir -p $HOME/.kube
-cp -Rf /etc/kubernetes/admin.conf $HOME/.kube/config
-chown $(id -u):$(id -g) $HOME/.kube/config
+sudo cp -Rf /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+sudo chown $(id -u):$(id -g) /etc/kubernetes/admin.conf
 sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
 echo "==================================="
